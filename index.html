@@ -1,0 +1,324 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<!-- custom style -->
+		<link rel="stylesheet" href="css/my.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>my deep dive into testing</h1>
+					<img src="./css/assets/cypress-logo.png" alt="cypress logo" srcset="">
+				</section>
+				<section classs="introduction">
+					<h3>who am i</h3>
+					<div class="card">
+						<div>
+							<figure class="fragment" data-fragment-index="1">
+								<img src="./css/assets/my-photo.jpg" alt="my awsome photo" style="width: 50%">
+							</figure>
+							<figure class="fragment" data-fragment-index="3">
+								<img src="./css/assets/egzeggutor.png" alt="egzeggutor" class="secret-me">
+							</figure>
+						</div>
+						<div class="fragment" data-fragment-index="2">
+								<p>MariiaTarasiuk</p>
+								<p>Front-End Developer</p>
+								<p>Muniton team</p>
+								<p>Ipreo</p>
+						</div>
+					</div>
+				</section>
+				<section>
+					<h3>Migration...</h3>
+					<ul>
+						<li class="fragment item-with-img item-with-img-centered">
+							<img class="logo-img" style="width: 50px; margin-right: 5px;" src="./css/assets/Angular_full_color_logo.svg.png" />
+							<p>From Angular v.5 To v.6</p>
+						</li>
+						<li class="fragment item-with-img item-with-img-centered">
+							<img class="logo-img" style="width: 50px; margin-right: 5px;" src="./css/assets/rxjs_logo.png"/>
+							<p>From RxJs v.5 To v.6</p>
+						</li>
+						<li class="fragment item-with-img item-with-img-centered">
+							<img class="logo-img" style="width: 50px; margin-right: 5px;" src="./css/assets/webpack_logo.png"/>
+							<p>From Webpack v.3 To v.4</p>
+						</li>
+						<li class="fragment item-with-img item-with-img-centered">
+							<img class="logo-img" style="width: 50px; margin-right: 5px;" src="./css/assets/jasmine_logo.jpg"/>
+							<p>Jasmine To Jest</p>
+							<img class="logo-img" style="width: 50px; margin-left: 5px;" src="./css/assets/jest_logo.png"/>
+						</li>
+						<li class="fragment item-with-img">
+							<img class="logo-img" style="width: 50px; margin-right: 5px;" src="./css/assets/lerna_logo.png"/>
+							<p>bunch of linked repos To Monorepo on Lerna</p>
+						</li>
+						<li class="fragment item-with-img">
+							<p>From handmade Selenium base framework To </p>
+							<img src="./css/assets/cypress-logo-2.png" class="logo-img" style="width: 100px; margin-left: 10px;">
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Why software testing matters</h4>
+					<img src="./css/assets/stupid-questions.png" class="stupid-q">
+				</section>
+				<section>
+					<h2>Testing piramid</h2>
+					<img src="./css/assets/testing-pyramid.png" alt="testing piramid" style="height: 500px;">
+				</section>
+				<section>
+					<h3>Selenium</h3>
+					<p>developed by Jason Huggins in <span style="color:darkseagreen">2004</span> as an internal tool at ThoughtWorks</p>
+					<p>Selenium currently provides client APIs for <span style="color:darkseagreen">Java, C#, Ruby, JavaScript and Python</span></p>
+				</section>
+				<section>
+						<h3>Selenium base</h3>
+						<img src="css/assets/se-logo.png" alt="selenium" class="fragment e2e-logo">
+						<img src="css/assets/nightwatch-logo.jpg" alt="nightwatch" class="fragment e2e-logo">
+						<img src="css/assets/protractor-logo.png" alt="protractor" class="fragment e2e-logo">
+						<img src="css/assets/cypress-logo-2.png" alt="cypress" class="fragment e2e-logo__cypress cypress-logo">
+					</section>
+				<section>
+					<h3>Cypress</h3>
+					<p>JavaScript End-To-End testing framework</p>
+					<p>15 people from Atlanta, Philly, Boston, LA, Chicago, NYC</p>
+				</section>
+				<section>
+					<h3>more about Cypress</h3>
+				</section>
+				<section>
+					<h4>Fast install</h4>
+					<div class="fragment">
+						<pre><code data-trim data-noescape>
+								$ npm install -D cypress
+						</code></pre>
+						<img src="./css/assets/cy-install.png" alt="">
+					</div>
+				</section>
+				<section>
+					<h4>File structure</h4>
+					<img src="./css/assets/file-structure.png" alt="">
+				</section>
+				<section>
+						<h4>GUI</h4>
+					<img src="./css/assets/cy-gui.png" alt="" style="width: 90%; height: auto;">
+				</section>
+				<section>
+					<h4>get DOM element</h4>
+						<h5>jQuery</h5>
+						<pre><code data-trim data-noescape javascript>
+							$('.my-class-selector')
+							$('#my-id-selector')
+							$('p > ul > li')
+						</code></pre>
+						<h5>Cypress</h5>
+						<pre><code data-trim javascript>
+							cy.get('.my-class-selector')
+							cy.get('#my-id-selector')
+							cy.get('p > ul > li')
+						</code></pre>
+				</section>
+				<section>
+					<h4>[data-attr] selector</h4>
+					<img src="./css/assets/cy-selector.png" alt="" style="height: 75vh">
+				</section>
+				<section>
+					<h4>Jasmine-like syntax</h4>
+					<pre><code data-trim data-noescape>
+							describe('My Simple Test', function() {
+								it('Looks similar right?', function() {
+									expect(true).to.equal(true)
+								})
+							})
+					</code></pre>
+				</section>
+				<section>
+					<h4>Promise, you love it!</h4>
+					<pre><code data-trim javascript>
+						cy.visit('/my/resource/path')
+							.then(() => {
+								return cy.get('.awesome-selector')
+							})
+							.then(($element) => {
+								return cy.click($element)
+							})
+							.then(() => {
+								return cy.url()
+							})
+							.then((url) => {
+								expect(url).to.eq('/my/path#awesomeness')
+							})
+					</code></pre>
+				</section>
+				<section>
+					<h4 style="color:darkseagreen">BDD</h4>
+					<p>Behavior Driven Development</p>
+					<img src="./css/assets/bdd.png" class="bdd-schema">
+				</section>
+				<section>
+					<h4 style="color:darkseagreen">Gherkin</h4>
+					<p>describe business behavior without the need to go into detail of implementation</p>
+					<ul style="text-align: center;">
+						<li>
+							<pre><code data-trim Cucumber data-noescape>
+								Feature: Programmer deep dive into testing
+
+								Scenario: Dev learn how to wright test
+								When I open the cypress.io and pick Documentation
+								And I open search and type "screenshot"
+								Then I get list with follow result
+								| screenshot | Screenshots and Videos| Screenshot API |
+							</code></pre>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h4 style="color:darkseagreen">Cucumber</h4>
+					<pre><code data-trim data-noescape>
+					@When('I open the cypress.io and pick Documentation',
+					 	() => {...})
+					@When('I open search and type {paragName}',
+					 	(paragName) => {...})
+					@Then('I get list with follow result',
+						 rawTable => {...})
+					</code></pre>
+				</section>
+				<!-- <section>
+					<h4>Create simple test</h4>
+					<ul>
+						<li class="fragment">look into stories, pick AC, create BDD step</li>
+						<li class="fragment">
+							Story: As a valid user I login to todo app and see list of todo</li>
+						<li class="fragment">
+							<p>BDD:</p> 
+							<p>Given: I link directly to "https://todo-app.com" path as "UserName" and "UserPass"'</p>
+						</li>
+						<li class="fragment">
+							<p>Cucumber steps: </p>
+							<p>@Given('I link directly to {string} path as {string} and {string}',</p>
+							<p>(url, login, password) => {})</p> 
+						</li>
+					</ul>
+				</section> -->
+
+				<section>
+					<h4>Stub and Mock</h4>
+					<pre><code data-trim data-noescape>
+							cy.server()
+
+							// we set the response to be the todo-mock.json fixture
+							cy.route('GET', 'todo-list/*', 'fixture:todo-mock.json')
+					</code></pre>
+
+					<pre><code data-trim data-noescape>
+							cy.server()
+
+							cy.fixture('todo-mock.json').as('todoJSON')
+							cy.route('GET', 'todo-list/*', '@todoJSON')
+					</code></pre>
+					<pre><code data-trim data-noescape>
+							//returns dogs.png as Base64
+							cy.fixture('images/dogs.png')
+					</code></pre>
+
+					<pre><code data-trim data-noescape>
+							Then You can stub any data with dataTable
+							| test 1 | test 2 | test 3 |
+					</code></pre>
+				</section>
+				<section>
+					<h4>Debuging</h4>
+					<pre><code data-noescape data-trim>
+						it('let me debug when the after the command executes',
+							function () {
+							cy.visit('/my/page/path')
+						
+							cy.get('.selector-in-question')
+								.then(($selectedElement) => {
+									// Debugger is hit after the cy.visit
+									// and cy.get command have completed
+									debugger
+								})
+						})
+					</code></pre>
+					<pre><code data-trim data-noescape>
+							it('let me debug like a fiend', function() {
+								cy.visit('/my/page/path')
+							
+								cy.get('.selector-in-question')
+									.debug()
+							})
+					</code></pre>
+					<p>or use DevTools!</p>
+				</section>
+				<section>
+					<h4>Remember! Cy support only Chrome... yet</h4>
+					<div class="chrome-only">
+						<img src="css/assets/browsers.png" style="border: none">
+						<img src="css/assets/Google_Chrome_icon_(September_2014).svg" class="fragment chrome-logo">
+					</div>
+				</section>
+				<section>
+					<h3>Tips & Tricks</h3>
+				</section>
+				<section>
+					<h4>keep your eye on timezone!</h4>
+					<img src="./css/assets/time-zone.jpg" alt="time-zone" style="height: 70vh; border: none;">
+				</section>
+				<section>
+					<h4>If you stub data it BDD steps (table)</h4>
+					<h5>all data will be a <span style="color:darkseagreen">"string"</span>!</h5>
+					<p class="fragment">for me it cost 4 hours debugging</p>
+				</section>
+				<section>
+					<h4>Don't be cheapo when it comes to QA</h4>
+					<img src="./css/assets/noQA.png" alt="" height="500px">
+				</section>
+				<section>
+					<h3>questions?</h3>
+				</section>
+				<section>
+					<img src="./css/assets/test-end.png" class="thank-you">
+					<h4>Thank you!</h4>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

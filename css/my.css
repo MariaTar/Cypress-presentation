@@ -1,0 +1,73 @@
+ul {
+  list-style: none !important;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+}
+
+.e2e-logo {
+  height: 250px;
+  border: none;
+}
+
+.reveal .slides section .e2e-logo__cypress {
+  width: 90vw;
+  height: 70vh;
+}
+
+.cypress-logo, .chrome-logo {
+  position: absolute;
+  border: none !important;
+  height: 250px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.chrome-logo {
+  height: 400px;
+  transform: translate(-50%, -50%);
+}
+.logo-img {
+  border: none !important;
+  position: relative;
+  margin: 0 5px;
+}
+.item-with-img {
+  display: flex;
+  height: 2em;
+}
+.item-with-img-centered {
+  position: relative;
+  left: 25%;
+}
+
+.reveal .slides section .bdd-schema {
+  border: none;
+}
+
+.reveal .slides section .fragment .secret-me {
+    width: 38%;
+    position: absolute;
+    left: 170px;
+    top: 105px;
+    border: none;
+  }
+
+  .reveal .slides section .stupid-q {
+    height: 80vh;
+  }
+  .chrome-only {
+    position: relative;
+  }
+  .chrome-only .chrome-logo {
+    top: 27.5vh;
+    height: 54vh;
+    box-shadow: none;
+  }
+
+  .thank-you {
+    height: 75vh;
+  }
