@@ -40,11 +40,22 @@ module.exports = function(grunt) {
 				dest: 'css/reveal.css'
 			},
 			themes: {
-				expand: true,
-				cwd: 'css/theme/source',
-				src: ['*.sass', '*.scss'],
-				dest: 'css/theme',
-				ext: '.css'
+				files: [
+					{
+						expand: true,
+						cwd: 'css/theme/source',
+						dest: 'css/theme',
+						src: ['*.sass', '*.scss'],
+						ext: '.css'
+					},
+					{
+						expand: true,
+						cwd: 'css/theme/source/additional',
+						dest: 'css/theme/additional',
+						src: ['*.sass', '*.scss'],
+						ext: '.css'
+					}
+				]
 			}
 		},
 
@@ -125,6 +136,8 @@ module.exports = function(grunt) {
 			},
 			theme: {
 				files: [
+					'css/theme/additional/source/*.sass',
+					'css/theme/additional/source/*.scss',
 					'css/theme/source/*.sass',
 					'css/theme/source/*.scss',
 					'css/theme/template/*.sass',

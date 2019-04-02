@@ -1,0 +1,206 @@
+.gui {
+  
+  $parts: [menu url viewport log app];
+  $parts-data: (
+    parts: (
+      menu: (
+        left: 11%,
+        top: 19%,
+        image: (
+          position: left,
+          x: -250px,
+          y: -210px
+        )
+      ),
+      url: (
+        left: 42%,
+        top: 42%,
+        image: (
+          position: top,
+          x: -790px,
+          y: -210px
+        )
+      ),
+      viewport: (
+        left: 60%,
+        top: 20%,
+        image: (
+          position: right,
+          x: -1535px,
+          y: -210px
+        )
+      ),
+      log: (
+        left: 4%,
+        top: 68%,
+        image: (
+          position: left,
+          x: -120px,
+          y: -850px
+        )
+      ),
+      app: (
+        left: 33%,
+        top: 48%,
+        image: (
+          position: right,
+          x: -900px,
+          y: -600px
+        )
+      )
+    )
+  );
+  $particle-dimension: 200px;
+  $particle-margin: 20px;
+  $text-color: #222;
+  $overlay-color: rgba(#fff, .95);
+  $part-border-color: #444;
+  
+  position: relative;
+  margin-bottom: 15px;
+
+  &.visible:not(.current-fragment) {
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: $overlay-color;
+    }
+  }
+  
+  img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    margin: 0 !important;
+    border: none !important;
+  }
+  
+  .part {
+    position: absolute;
+    z-index: 1;
+    color: $text-color;
+    
+    &:not(.current-fragment) {
+      opacity: 0 !important;
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      width: $particle-dimension;
+      height: $particle-dimension;
+      border: 1px solid $part-border-color;
+      border-radius: 50%;
+      background-image: url('/css/assets/cy-gui.png');
+    }
+  }
+  
+  .header {
+    margin-bottom: 8px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .description {
+    font-size: 12px;
+  }
+  
+  @each $part in $parts {
+    
+    $data: map-get(map-get($parts-data, parts), $part);
+    $image-data: map-get($data, image);
+    $image-position: map-get($image-data, position);
+    
+    .#{$part} {
+      
+      @if (map-get($data, width) != null) {
+        width: map-get($data, width);
+      }
+      
+      @if (map-get($data, height) != null) {
+        height: map-get($data, height);
+      }
+      
+      @if (map-get($data, left) != null) {
+        left: map-get($data, left);
+      }
+      
+      @if (map-get($data, top) != null) {
+        top: map-get($data, top);
+      }
+      
+      @if (map-get($data, right) != null) {
+        right: map-get($data, right);
+      }
+      
+      @if (map-get($data, bottom) != null) {
+        bottom: map-get($data, bottom);
+      }
+      
+      &::after {
+        background-position: map-get($image-data, x) map-get($image-data, y);
+      }
+      
+      @if ($image-position == top) {
+        
+        .content {
+          margin-top: $particle-margin;
+        }
+
+        &::after {
+          bottom: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+
+      @if ($image-position == bottom) {
+        
+        .content {
+          margin-bottom: $particle-margin;
+        }
+
+        &::after {
+          top: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+      
+      @if ($image-position == left) {
+        
+        .content {
+          margin-left: $particle-dimension + $particle-margin;
+          text-align: left;
+        }
+        
+        &::after {
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+      
+      @if ($image-position == right) {
+        
+        .content {
+          text-align: right;
+          margin-right: $particle-margin  
+        }
+        
+        &::after {
+          left: 100%;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
+}
