@@ -30,7 +30,7 @@
       height: 95px;
       border: 1px solid #444;
       /* border-radius: 50%; */
-      background-image: url("/css/assets/cy-gui.png"); }
+      background-image: url("../../assets/cy-gui.png"); }
   .gui .header {
     margin-bottom: 8px;
     font-size: 24px;
