@@ -87,7 +87,7 @@
       top: -85%;
       transform: translateY(-50%); }
   .gui .app {
-    left: 20%;
+    left: 5%;
     top: 25%; }
     .gui .app::after {
       height: 50vh;
