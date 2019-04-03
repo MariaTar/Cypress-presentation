@@ -65,9 +65,9 @@ ul {
     border: none;
   }
   .chrome-only .chrome-logo {
-    top: 27.5vh;
-    height: 54vh;
-    box-shadow: none;
+    position: relative;
+    top: -45%;
+    height: 9.5em;
   }
 
   .thank-you {
