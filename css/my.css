@@ -68,6 +68,8 @@ ul {
     position: relative;
     top: -45%;
     height: 9.5em;
+    transform: translate(-122%, -111%);
+    box-shadow: none;
   }
 
   .thank-you {
