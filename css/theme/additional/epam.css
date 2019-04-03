@@ -27,9 +27,10 @@
       content: '';
       position: absolute;
       width: 400px;
-      height: 95px;
+      height: 75px;
       border: 1px solid #444;
-      background-image: url("../../assets/cy-gui.png"); }
+      /* background-image: url("../../assets/cy-gui.png"); } */
+      background-image: url("../../assets/cy-gui-2.png"); }
   .gui .header {
     margin-bottom: 8px;
     font-size: 24px;
@@ -37,22 +38,30 @@
   .gui .description {
     font-size: 12px; }
   .gui .menu {
-    left: 11%;
-    top: 19%; }
+    left: 10%;
+    top: 5%; }
     .gui .menu::after {
-      background-position: -45px -270px; }
+      background-position: 3px 5px;}
+      /* background-position: -45px -270px; } */
     .gui .menu .content {
       margin-left: 350px;
       text-align: left; }
     .gui .menu::after {
+      left: -90px;
+      top: 45%;
+      transform: translateY(-50%);
+    }
+    /* .gui .menu::after {
       left: -70px;
       top: 50%;
-      transform: translateY(-50%); }
+      transform: translateY(-50%); } */
   .gui .url {
     left: 42%;
-    top: 42%; }
+    top: 22%; }
+    /* top: 42%;} */
     .gui .url::after {
-      background-position: -795px -265px; }
+      background-position: -730px 5px;}
+      /* background-position: -795px -265px; } */
     .gui .url .content {
       margin-top: 20px; }
     .gui .url::after {
@@ -61,10 +70,12 @@
       transform: translateX(-50%); }
   .gui .viewport {
     left: 60%;
-    top: 20%; }
+    top: 2%; }
+    /* top: 20%; } */
     .gui .viewport::after {
       width: 200px;
-      background-position: -1525px -270px; }
+      background-position: -1360px 5px;}
+      /* background-position: -1525px -270px; } */
     .gui .viewport .content {
       text-align: right;
       margin-right: 20px; }
@@ -76,14 +87,17 @@
     left: 4%;
     top: 68%; }
     .gui .log::after {
-      height: 575%;
-      background-position: -130px -595px; }
+      height: 515%;
+      background-position: -9px -668px; }
+      /* height: 575%;
+      background-position: -130px -595px; } */
     .gui .log .content {
       margin-left: 450px;
       text-align: left; }
     .gui .log::after {
       left: 0;
-      top: -85%;
+      /* top: -85%; */
+      top: -95%;
       transform: translateY(-50%); }
   .gui .app {
     left: 5%;
@@ -91,11 +105,13 @@
     .gui .app::after {
       height: 500%;
       width: 200%;
-      background-position: -830px -550px }
+      background-position: -850px -70px }
+      /* background-position: -830px -550px } */
     .gui .app .content {
       text-align: right;
       margin-right: 20px; }
     .gui .app::after {
       left: 100%;
-      top: 260%;
+      /* top: 260%; */
+      top: 135%;
       transform: translateY(-50%); }

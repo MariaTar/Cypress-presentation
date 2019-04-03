@@ -83,3 +83,11 @@ ul {
   background: none;
   border: none;
 }
+.fragment.e2e-logo__cypress.cypress-logo.visible ~ .fragment.e2e-logo {
+  visibility: hidden
+}
+.fragment.e2e-logo__cypress.cypress-logo.visible {
+  box-shadow: none;
+  width: 100%;
+  height: auto;
+}
