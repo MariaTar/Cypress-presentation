@@ -12,11 +12,6 @@ ul {
   border: none;
 }
 
-.reveal .slides section .e2e-logo__cypress {
-  width: 90vw;
-  height: 70vh;
-}
-
 .cypress-logo, .chrome-logo {
   position: absolute;
   border: none !important;
@@ -57,7 +52,7 @@ ul {
   }
 
   .reveal .slides section .stupid-q {
-    height: 80vh;
+    height: 13em;
   }
   .chrome-only {
     position: relative;
