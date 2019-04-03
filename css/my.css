@@ -62,6 +62,13 @@ ul {
   .chrome-only {
     position: relative;
   }
+
+  .chrome-only img {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
   .chrome-only .chrome-logo {
     top: 27.5vh;
     height: 54vh;
